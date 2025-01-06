@@ -12,11 +12,11 @@ func main() {
 	fmt.Scanln(&name)
 	fmt.Println("Hello,", name)
 
-	fmt.Print("Please provide your feedback rating: ")
-	rating, err := bufio.NewReader(os.Stdin).ReadString('\n')
-	if err != nil {
-		fmt.Println("Error:", err)
-		return
-	}
-	fmt.Println("Thanks for the rating,", rating)
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Enter the rating for our Pizza: ")
+
+	// comma ok/error ok
+	input, _ := reader.ReadString('\n')
+	fmt.Println("Thanks for rating, ", input)
+	fmt.Printf("Type of rating is %T", input)
 }
